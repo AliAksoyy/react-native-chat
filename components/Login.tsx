@@ -19,13 +19,18 @@ interface LoginProps {
     | NativeStackNavigationProp<RouteParamList, 'SignIn'>;
 }
 
+interface LoginState {
+  email: string;
+  password: string;
+}
+
 const Login: React.FC<LoginProps> = ({
   navigation,
   title,
   innerText,
   forgotPassword,
 }) => {
-  const [value, setValue] = useState({email: '', password: ''});
+  const [value, setValue] = useState<LoginState>({email: '', password: ''});
 
   const handlePress = () => {
     if (forgotPassword) {
@@ -33,6 +38,10 @@ const Login: React.FC<LoginProps> = ({
     } else {
       navigation.navigate('SignIn');
     }
+  };
+
+  const handleChange = (text: {email?: string; password?: string}) => {
+    setValue({...value, ...text});
   };
 
   return (
@@ -48,6 +57,7 @@ const Login: React.FC<LoginProps> = ({
             style={styles.inputEmail}
             value={value.email}
             placeholder="Enter Mail"
+            onChangeText={text => handleChange({email: text})}
           />
         </View>
         <View>
@@ -59,6 +69,7 @@ const Login: React.FC<LoginProps> = ({
             style={styles.inputPassword}
             value={value.password}
             placeholder="Enter Password"
+            onChangeText={text => handleChange({password: text})}
           />
         </View>
         {forgotPassword && (
@@ -110,6 +121,7 @@ const styles = StyleSheet.create({
     color: '#FF9134',
     fontWeight: '500',
     textAlign: 'center',
+    marginBottom: 20,
   },
   emailImage: {
     position: 'absolute',
