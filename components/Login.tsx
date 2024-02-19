@@ -61,18 +61,20 @@ const Login: React.FC<LoginProps> = ({
             placeholder="Enter Password"
           />
         </View>
-        <View>
-          <TouchableOpacity>
-            <Text
-              style={{
-                color: '#FF9134',
-                paddingTop: 3,
-                textAlign: 'right',
-              }}>
-              Forgot Password
-            </Text>
-          </TouchableOpacity>
-        </View>
+        {forgotPassword && (
+          <View>
+            <TouchableOpacity>
+              <Text
+                style={{
+                  color: '#FF9134',
+                  paddingTop: 3,
+                  textAlign: 'right',
+                }}>
+                Forgot Password
+              </Text>
+            </TouchableOpacity>
+          </View>
+        )}
       </View>
       <View>
         <TouchableOpacity style={styles.btn}>
