@@ -9,7 +9,11 @@ export default function SignUpScreen() {
         style={styles.image}
         source={require('../assests/imgs/SignUp.png')}
       />
-      <Login />
+      <Login
+        title={'Sign Up'}
+        innerText={'Login Here'}
+        forgotPassword={false}
+      />
     </View>
   );
 }

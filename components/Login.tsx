@@ -8,10 +8,16 @@ import {
 } from 'react-native';
 import React from 'react';
 
-export default function Login() {
+interface LoginProps {
+  title: string;
+  innerText: string;
+  forgotPassword: boolean;
+}
+
+const Login: React.FC<LoginProps> = ({title, innerText, forgotPassword}) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.head}>Sign Up</Text>
+      <Text style={styles.head}>{title}</Text>
       <View>
         <View>
           <Image
@@ -35,13 +41,15 @@ export default function Login() {
         <View style={styles.subBtn}>
           <Text style={styles.innerText}>Do you have an account </Text>
           <TouchableOpacity>
-            <Text style={styles.subText}>Login Here</Text>
+            <Text style={styles.subText}>{innerText}</Text>
           </TouchableOpacity>
         </View>
       </View>
     </View>
   );
-}
+};
+
+export default Login;
 
 const styles = StyleSheet.create({
   container: {
