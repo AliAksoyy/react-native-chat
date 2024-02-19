@@ -38,12 +38,13 @@ export default function App() {
             },
             headerLeft: () => {
               return (
-                <TouchableOpacity>
+                <TouchableOpacity style={styles.headerLeft}>
                   <Image source={require('./assests/imgs/plus.png')} />
                 </TouchableOpacity>
               );
             },
             headerTitleAlign: 'center',
+            headerTitleStyle: {fontSize: 23, fontWeight: '700'},
           }}
         />
       </Stack.Navigator>
@@ -51,4 +52,6 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  headerLeft: {padding: 6, backgroundColor: '#fafafa'},
+});
