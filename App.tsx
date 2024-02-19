@@ -15,12 +15,12 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   const {login} = useLoginContext();
 
-  console.log(login);
+  console.log('aa', login);
 
   return (
     <LoginProvider>
       <NavigationContainer>
-        {login ? (
+        {!login ? (
           <Stack.Navigator>
             <Stack.Screen
               name="SignUp"
@@ -41,7 +41,7 @@ export default function App() {
               options={{headerShown: false}}
             />
             <Tab.Screen
-              name="Chatss"
+              name="Chats"
               component={ChatsScreen}
               options={{headerShown: false}}
             />

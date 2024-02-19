@@ -29,6 +29,6 @@ export const LoginProvider: React.FC<{children: ReactNode}> = ({children}) => {
   );
 };
 
-export const useLoginContext = () => {
+export const useLoginContext = (): LoginContextState => {
   return useContext(LoginContext);
 };

@@ -9,6 +9,7 @@ import {
 import React, {useState} from 'react';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RouteParamList} from '../types/types';
+import {useLoginContext} from '../context/LoginContext';
 
 interface LoginProps {
   title: string;
@@ -32,6 +33,8 @@ const Login: React.FC<LoginProps> = ({
 }) => {
   const [value, setValue] = useState<ValueState>({email: '', password: ''});
 
+  const {setLogin} = useLoginContext();
+
   const handlePress = () => {
     if (forgotPassword) {
       navigation.navigate('SignUp');
@@ -39,8 +42,9 @@ const Login: React.FC<LoginProps> = ({
       navigation.navigate('SignIn');
     }
   };
-  const handleBtn = () => {
+  const handleBtn = async() => {
     if (forgotPassword) {
+      await setLogin(true);
       navigation.navigate('Contacts');
     } else {
       navigation.navigate('SignIn');
