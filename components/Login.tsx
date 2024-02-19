@@ -70,6 +70,7 @@ const Login: React.FC<LoginProps> = ({
             value={value.password}
             placeholder="Enter Password"
             onChangeText={text => handleChange({password: text})}
+            secureTextEntry={true}
           />
         </View>
         {forgotPassword && (
