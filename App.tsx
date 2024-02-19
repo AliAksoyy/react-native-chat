@@ -1,11 +1,10 @@
-import {StyleSheet, Text, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import SignUpScreen from './screens/SignUpScreen';
-import SignInScreen from './screens/SignInScreen';
-import {RouteParamList} from './types/types';
-import ContactScreen from './screens/ContactScreen';
+import SignUpScreen from './src/screens/SignUpScreen';
+import SignInScreen from './src/screens/SignInScreen';
+import {RouteParamList} from './src/types/types';
+import ContactScreen from './src/screens/ContactScreen';
 
 const Stack = createNativeStackNavigator<RouteParamList>();
 
@@ -32,7 +31,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  headerLeft: {padding: 6, backgroundColor: '#fafafa'},
-});
