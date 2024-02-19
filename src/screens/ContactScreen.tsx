@@ -59,5 +59,5 @@ const styles = StyleSheet.create({
     right: 4,
     top: 2,
   },
-  content: {},
+  content: {flex: 1},
 });

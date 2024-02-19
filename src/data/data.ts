@@ -56,12 +56,12 @@ export const data = [
   },
   {
     id: 12,
-    name: 'Moana Garber',
+    name: 'Beyda Garber',
     uri: require('../assests/profile/ProfileImage1.png'),
   },
   {
     id: 13,
-    name: 'Moana Garber',
+    name: 'Ali Garber',
     uri: require('../assests/profile/ProfileImage3.png'),
   },
   
