@@ -5,6 +5,7 @@ import {
   View,
   TouchableOpacity,
   ImageSourcePropType,
+  ScrollView,
 } from 'react-native';
 import React from 'react';
 
@@ -20,20 +21,22 @@ export default function ContentList({item}: ContentListProps) {
   const imagePath = item.uri;
 
   return (
-    <TouchableOpacity style={styles.container}>
-      <View>
-        <Image source={imagePath} />
-      </View>
-      <View style={styles.content}>
-        <Text style={styles.contentText}>{item.name}</Text>
-        <Text style={styles.contentSubText}>last seen recently</Text>
-      </View>
-      <View>
-        <TouchableOpacity>
-          <Text style={styles.message}>Message</Text>
-        </TouchableOpacity>
-      </View>
-    </TouchableOpacity>
+    <ScrollView>
+      <TouchableOpacity style={styles.container}>
+        <View>
+          <Image source={imagePath} />
+        </View>
+        <View style={styles.content}>
+          <Text style={styles.contentText}>{item.name}</Text>
+          <Text style={styles.contentSubText}>last seen recently</Text>
+        </View>
+        <View>
+          <TouchableOpacity>
+            <Text style={styles.message}>Message</Text>
+          </TouchableOpacity>
+        </View>
+      </TouchableOpacity>
+    </ScrollView>
   );
 }
 

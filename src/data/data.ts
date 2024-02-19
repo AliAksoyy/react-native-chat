@@ -39,4 +39,30 @@ export const data = [
     name: 'Moana Garber',
     uri: require('../assests/profile/ProfileImage3.png'),
   },
+  {
+    id: 9,
+    name: 'Moana Garber',
+    uri: require('../assests/profile/ProfileImage7.png'),
+  },
+  {
+    id: 10,
+    name: 'Moana Garber',
+    uri: require('../assests/profile/ProfileImage4.png'),
+  },
+  {
+    id: 11,
+    name: 'Moana Garber',
+    uri: require('../assests/profile/ProfileImage5.png'),
+  },
+  {
+    id: 12,
+    name: 'Moana Garber',
+    uri: require('../assests/profile/ProfileImage1.png'),
+  },
+  {
+    id: 13,
+    name: 'Moana Garber',
+    uri: require('../assests/profile/ProfileImage3.png'),
+  },
+  
 ];
