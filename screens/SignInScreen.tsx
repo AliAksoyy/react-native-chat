@@ -3,14 +3,19 @@ import React from 'react';
 import Login from '../components/Login';
 import {SingInScreenProps} from '../types/types';
 
-export default function SignInScreen({}: SingInScreenProps) {
+export default function SignInScreen({navigation}: SingInScreenProps) {
   return (
     <View style={styles.container}>
       <Image
         style={styles.image}
         source={require('../assests/imgs/SignUp.png')}
       />
-      <Login title={'Login'} innerText={'Sign Up Here'} forgotPassword={true} />
+      <Login
+        title={'Login'}
+        innerText={'Sign Up Here'}
+        forgotPassword={true}
+        navigation={navigation}
+      />
     </View>
   );
 }

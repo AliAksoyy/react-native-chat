@@ -12,10 +12,22 @@ interface LoginProps {
   title: string;
   innerText: string;
   forgotPassword: boolean;
+  navigation: any;
 }
 
-const Login: React.FC<LoginProps> = ({title, innerText, forgotPassword}) => {
-  const handlePress = () => {};
+const Login: React.FC<LoginProps> = ({
+  navigation,
+  title,
+  innerText,
+  forgotPassword,
+}) => {
+  const handlePress = () => {
+    if (forgotPassword) {
+      navigation.navigate('SignUp');
+    } else {
+      navigation.navigate('SignIn');
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -38,7 +50,7 @@ const Login: React.FC<LoginProps> = ({title, innerText, forgotPassword}) => {
       </View>
       <View>
         <TouchableOpacity style={styles.btn}>
-          <Text style={styles.btnText}>Sign Up</Text>
+          <Text style={styles.btnText}>{title}</Text>
         </TouchableOpacity>
         <View style={styles.subBtn}>
           <Text style={styles.innerText}>Do you have an account </Text>
