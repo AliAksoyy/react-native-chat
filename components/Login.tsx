@@ -6,7 +6,7 @@ import {
   View,
   Image,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RouteParamList} from '../types/types';
 
@@ -25,6 +25,8 @@ const Login: React.FC<LoginProps> = ({
   innerText,
   forgotPassword,
 }) => {
+  const [value, setValue] = useState({email: '', password: ''});
+
   const handlePress = () => {
     if (forgotPassword) {
       navigation.navigate('SignUp');
@@ -42,14 +44,22 @@ const Login: React.FC<LoginProps> = ({
             style={styles.emailImage}
             source={require('../assests/imgs/email.png')}
           />
-          <TextInput style={styles.inputEmail} value="s" />
+          <TextInput
+            style={styles.inputEmail}
+            value={value.email}
+            placeholder="Enter Mail"
+          />
         </View>
         <View>
           <Image
             style={styles.passwordImage}
             source={require('../assests/imgs/password.png')}
           />
-          <TextInput style={styles.inputPassword} value="s" />
+          <TextInput
+            style={styles.inputPassword}
+            value={value.password}
+            placeholder="Enter Password"
+          />
         </View>
         <View>
           <TouchableOpacity>
