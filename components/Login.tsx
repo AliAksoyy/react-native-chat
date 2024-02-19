@@ -11,7 +11,7 @@ export default function Login() {
   return (
     <View style={styles.container}>
       <Text style={styles.head}>Sign Up</Text>
-      <View style={styles.form}>
+      <View>
         <TextInput style={styles.inputEmail} value="s" />
         <TextInput style={styles.inputPassword} value="s" />
       </View>
@@ -43,10 +43,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     textAlign: 'center',
   },
-  form: {
-    marginVertical: 30,
-    justifyContent: 'space-between',
-  },
+
   inputEmail: {
     backgroundColor: '#eee',
     borderRadius: 10,
@@ -64,7 +61,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FF9134',
     paddingVertical: 15,
     borderRadius: 10,
-    marginTop: 30,
+    marginTop: 15,
     marginBottom: 10,
   },
   btnText: {textAlign: 'center', color: 'white', fontSize: 20},
