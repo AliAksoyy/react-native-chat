@@ -1,8 +1,9 @@
 import {StyleSheet, Image, View} from 'react-native';
 import React from 'react';
 import Login from '../components/Login';
+import {SingInScreenProps} from '../types/types';
 
-export default function SignInScreen() {
+export default function SignInScreen({}: SingInScreenProps) {
   return (
     <View style={styles.container}>
       <Image

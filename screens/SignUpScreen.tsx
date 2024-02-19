@@ -1,13 +1,9 @@
 import {StyleSheet, View, Image} from 'react-native';
 import React from 'react';
 import Login from '../components/Login';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackParams} from '../App';
+import {SingUpScreenProps} from '../types/types';
 
-export default function SignUpScreen({}: NativeStackScreenProps<
-  RootStackParams,
-  'SignUp'
->) {
+export default function SignUpScreen({}: SingUpScreenProps) {
   return (
     <View style={styles.container}>
       <Image

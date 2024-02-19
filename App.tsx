@@ -4,15 +4,9 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import SignUpScreen from './screens/SignUpScreen';
 import SignInScreen from './screens/SignInScreen';
+import {RouteParamList} from './types/types';
 
-export type RootStackParams = {
-  SignUp: {
-    token: string;
-  };
-  SignIn: {};
-};
-
-const Stack = createNativeStackNavigator<RootStackParams>();
+const Stack = createNativeStackNavigator<RouteParamList>();
 
 export default function App() {
   return (
@@ -22,7 +16,6 @@ export default function App() {
           name="SignUp"
           component={SignUpScreen}
           options={{headerShown: false}}
-          initialParams={{token: 'test'}}
         />
         <Stack.Screen
           name="SignIn"
