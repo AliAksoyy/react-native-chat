@@ -7,12 +7,16 @@ import {
   Image,
 } from 'react-native';
 import React from 'react';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {RouteParamList} from '../types/types';
 
 interface LoginProps {
   title: string;
   innerText: string;
   forgotPassword: boolean;
-  navigation: any;
+  navigation:
+    | NativeStackNavigationProp<RouteParamList, 'SignUp'>
+    | NativeStackNavigationProp<RouteParamList, 'SignIn'>;
 }
 
 const Login: React.FC<LoginProps> = ({
