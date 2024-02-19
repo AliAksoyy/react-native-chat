@@ -63,14 +63,14 @@ const styles = StyleSheet.create({
   },
   emailImage: {
     position: 'absolute',
-    top: '25%',
+    top: '20%',
     left: 10,
     borderWidth: 2,
     zIndex: 1,
   },
   passwordImage: {
     position: 'absolute',
-    top: '25%',
+    top: '20%',
     left: 10,
     borderWidth: 2,
     zIndex: 1,
