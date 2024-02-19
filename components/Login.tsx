@@ -39,6 +39,13 @@ const Login: React.FC<LoginProps> = ({
       navigation.navigate('SignIn');
     }
   };
+  const handleBtn = () => {
+    if (forgotPassword) {
+      navigation.navigate('Contacts');
+    } else {
+      navigation.navigate('SignIn');
+    }
+  };
 
   const handleChange = (text: {email?: string; password?: string}) => {
     setValue({...value, ...text});
@@ -89,7 +96,7 @@ const Login: React.FC<LoginProps> = ({
         )}
       </View>
       <View>
-        <TouchableOpacity style={styles.btn}>
+        <TouchableOpacity onPress={handleBtn} style={styles.btn}>
           <Text style={styles.btnText}>{title}</Text>
         </TouchableOpacity>
         <View style={styles.subBtn}>
