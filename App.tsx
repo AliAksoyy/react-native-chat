@@ -26,26 +26,7 @@ export default function App() {
         <Stack.Screen
           name="Contacts"
           component={ContactScreen}
-          options={{
-            headerRight: () => {
-              return (
-                <TouchableOpacity>
-                  <Image
-                    source={require('./assests/profile/ProfileImage1.png')}
-                  />
-                </TouchableOpacity>
-              );
-            },
-            headerLeft: () => {
-              return (
-                <TouchableOpacity style={styles.headerLeft}>
-                  <Image source={require('./assests/imgs/plus.png')} />
-                </TouchableOpacity>
-              );
-            },
-            headerTitleAlign: 'center',
-            headerTitleStyle: {fontSize: 23, fontWeight: '700'},
-          }}
+          options={{headerShown: false}}
         />
       </Stack.Navigator>
     </NavigationContainer>
