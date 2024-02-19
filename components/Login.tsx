@@ -51,6 +51,18 @@ const Login: React.FC<LoginProps> = ({
           />
           <TextInput style={styles.inputPassword} value="s" />
         </View>
+        <View>
+          <TouchableOpacity>
+            <Text
+              style={{
+                color: '#FF9134',
+                paddingTop: 3,
+                textAlign: 'right',
+              }}>
+              Forgot Password
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
       <View>
         <TouchableOpacity style={styles.btn}>
