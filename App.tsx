@@ -1,4 +1,4 @@
-import {StyleSheet, Text} from 'react-native';
+import {StyleSheet, Text, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -28,10 +28,20 @@ export default function App() {
           component={ContactScreen}
           options={{
             headerRight: () => {
-              return <Text>s</Text>;
+              return (
+                <TouchableOpacity>
+                  <Image
+                    source={require('./assests/profile/ProfileImage1.png')}
+                  />
+                </TouchableOpacity>
+              );
             },
             headerLeft: () => {
-              return <Text>s</Text>;
+              return (
+                <TouchableOpacity>
+                  <Image source={require('./assests/imgs/plus.png')} />
+                </TouchableOpacity>
+              );
             },
             headerTitleAlign: 'center',
           }}
