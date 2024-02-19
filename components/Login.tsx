@@ -19,7 +19,7 @@ interface LoginProps {
     | NativeStackNavigationProp<RouteParamList, 'SignIn'>;
 }
 
-interface LoginState {
+interface ValueState {
   email: string;
   password: string;
 }
@@ -30,7 +30,7 @@ const Login: React.FC<LoginProps> = ({
   innerText,
   forgotPassword,
 }) => {
-  const [value, setValue] = useState<LoginState>({email: '', password: ''});
+  const [value, setValue] = useState<ValueState>({email: '', password: ''});
 
   const handlePress = () => {
     if (forgotPassword) {
