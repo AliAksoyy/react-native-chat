@@ -19,7 +19,12 @@ export default function Login() {
         <TouchableOpacity style={styles.btn}>
           <Text style={styles.btnText}>Sign Up</Text>
         </TouchableOpacity>
-        <Text style={styles.innerText}>Do you have an account Login Here</Text>
+        <View style={styles.subBtn}>
+          <Text style={styles.innerText}>Do you have an account </Text>
+          <TouchableOpacity>
+            <Text style={styles.subText}>Login Here</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -63,6 +68,17 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginTop: 15,
     marginBottom: 10,
+  },
+  subBtn: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  subText: {
+    fontWeight: 'bold',
+    fontSize: 14,
+    color: '#FF9134',
+    textAlign: 'center',
   },
   btnText: {textAlign: 'center', color: 'white', fontSize: 20},
   innerText: {textAlign: 'center', fontWeight: 'bold', fontSize: 14},
