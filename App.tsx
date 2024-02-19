@@ -5,7 +5,6 @@ import SignUpScreen from './src/screens/SignUpScreen';
 import SignInScreen from './src/screens/SignInScreen';
 import {RouteParamList} from './src/types/types';
 import ContactScreen from './src/screens/ContactScreen';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 const Stack = createNativeStackNavigator<RouteParamList>();
 
