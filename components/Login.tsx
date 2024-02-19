@@ -4,6 +4,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  Image,
 } from 'react-native';
 import React from 'react';
 
@@ -12,8 +13,20 @@ export default function Login() {
     <View style={styles.container}>
       <Text style={styles.head}>Sign Up</Text>
       <View>
-        <TextInput style={styles.inputEmail} value="s" />
-        <TextInput style={styles.inputPassword} value="s" />
+        <View>
+          <Image
+            style={styles.emailImage}
+            source={require('../assests/imgs/email.png')}
+          />
+          <TextInput style={styles.inputEmail} value="s" />
+        </View>
+        <View>
+          <Image
+            style={styles.passwordImage}
+            source={require('../assests/imgs/password.png')}
+          />
+          <TextInput style={styles.inputPassword} value="s" />
+        </View>
       </View>
       <View>
         <TouchableOpacity style={styles.btn}>
@@ -48,18 +61,31 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     textAlign: 'center',
   },
-
+  emailImage: {
+    position: 'absolute',
+    top: '25%',
+    left: 10,
+    borderWidth: 2,
+    zIndex: 1,
+  },
+  passwordImage: {
+    position: 'absolute',
+    top: '25%',
+    left: 10,
+    borderWidth: 2,
+    zIndex: 1,
+  },
   inputEmail: {
     backgroundColor: '#eee',
     borderRadius: 10,
-    paddingHorizontal: 15,
+    paddingLeft: 45,
     marginBottom: 20,
     fontSize: 17,
   },
   inputPassword: {
     backgroundColor: '#eee',
     borderRadius: 10,
-    paddingHorizontal: 15,
+    paddingLeft: 45,
     fontSize: 17,
   },
   btn: {
