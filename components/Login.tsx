@@ -15,6 +15,8 @@ interface LoginProps {
 }
 
 const Login: React.FC<LoginProps> = ({title, innerText, forgotPassword}) => {
+  const handlePress = () => {};
+
   return (
     <View style={styles.container}>
       <Text style={styles.head}>{title}</Text>
@@ -40,7 +42,7 @@ const Login: React.FC<LoginProps> = ({title, innerText, forgotPassword}) => {
         </TouchableOpacity>
         <View style={styles.subBtn}>
           <Text style={styles.innerText}>Do you have an account </Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={handlePress}>
             <Text style={styles.subText}>{innerText}</Text>
           </TouchableOpacity>
         </View>
