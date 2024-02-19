@@ -1,6 +1,15 @@
-import {StyleSheet, Text, TouchableOpacity, Image, View} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  Image,
+  View,
+  FlatList,
+} from 'react-native';
 import React from 'react';
 import {ContactScreenProps} from '../types/types';
+import {data} from '../data/data';
+import ContentList from '../components/ContentList';
 
 export default function ContactScreen({navigation}: ContactScreenProps) {
   return (
@@ -15,7 +24,13 @@ export default function ContactScreen({navigation}: ContactScreenProps) {
           <View style={styles.div} />
         </TouchableOpacity>
       </View>
-      <View style={styles.content}></View>
+      <View style={styles.content}>
+        <FlatList
+          data={data}
+          renderItem={({item}) => <ContentList item={item} />}
+          keyExtractor={item => item.id.toString()}
+        />
+      </View>
     </View>
   );
 }
