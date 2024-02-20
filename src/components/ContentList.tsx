@@ -5,8 +5,6 @@ import {
   View,
   TouchableOpacity,
   ImageSourcePropType,
-  ScrollView,
-  SafeAreaView,
 } from 'react-native';
 import React from 'react';
 
@@ -15,6 +13,9 @@ interface ContentListProps {
     id: number;
     name: string;
     uri: ImageSourcePropType;
+    subText: string;
+    messageCount: number;
+    lastSeen?: string;
   };
 }
 

@@ -3,7 +3,7 @@ import React from 'react';
 import {ChatsScreenProps} from '../types/types';
 import {data} from '../data/data';
 import ContentHeader from '../components/ContentHeader';
-import ContentList from '../components/ContentList';
+import ChatList from '../components/ChatList';
 
 export default function ChatsScreen({}: ChatsScreenProps) {
   return (
@@ -12,7 +12,7 @@ export default function ChatsScreen({}: ChatsScreenProps) {
       <View style={styles.content}>
         <FlatList
           data={data}
-          renderItem={({item}) => <ContentList item={item} />}
+          renderItem={({item}) => <ChatList item={item} />}
           keyExtractor={item => item.id.toString()}
           ItemSeparatorComponent={() => (
             <View style={{backgroundColor: '#F5F5F5', height: 2}} />
