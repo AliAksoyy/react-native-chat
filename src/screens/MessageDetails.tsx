@@ -3,7 +3,10 @@ import React, {useEffect, useState} from 'react';
 import {MessageScreenProps} from '../types/types';
 import MessageHeader from '../components/MessageHeader';
 
-export default function MessageDetails({route}: MessageScreenProps) {
+export default function MessageDetails({
+  navigation,
+  route,
+}: MessageScreenProps) {
   const [user, setUser] = useState<any>({});
 
   useEffect(() => {
@@ -12,10 +15,9 @@ export default function MessageDetails({route}: MessageScreenProps) {
     }
   }, [route.params.item]);
 
-  console.log(user);
   return (
     <View>
-      <MessageHeader user={user} />
+      <MessageHeader navigation={navigation} user={user} />
     </View>
   );
 }

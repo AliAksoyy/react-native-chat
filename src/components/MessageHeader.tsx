@@ -9,6 +9,8 @@ import {
 import React from 'react';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {RouteParamList} from '../types/types';
 interface User {
   id: number;
   name: string;
@@ -19,13 +21,18 @@ interface User {
 }
 
 interface MessageHeaderProps {
-  user: User; // User tipine göre belirleyin
+  navigation: NativeStackNavigationProp<RouteParamList, 'Message'>;
+  user: User;
 }
-export default function MessageHeader({user}: MessageHeaderProps) {
+export default function MessageHeader({navigation, user}: MessageHeaderProps) {
   const imagePath = user.uri;
   return (
     <View style={styles.header}>
-      <TouchableOpacity style={styles.plus}>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.pop();
+        }}
+        style={styles.plus}>
         <FontAwesome6
           name="angle-left"
           size={27}
