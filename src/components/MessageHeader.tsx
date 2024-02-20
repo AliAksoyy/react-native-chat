@@ -34,7 +34,7 @@ export default function MessageHeader({user}: MessageHeaderProps) {
         />
       </TouchableOpacity>
       <View style={{...styles.middle, flex: 1}}>
-        <Image source={imagePath} />
+        {user.uri && <Image source={imagePath} />}
         <View>
           <Text style={styles.text}>{user.name}</Text>
           <Text style={styles.subText}>{user.lastSeen}</Text>
