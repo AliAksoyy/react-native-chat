@@ -1,13 +1,21 @@
 import {StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {MessageScreenProps} from '../types/types';
 import MessageHeader from '../components/MessageHeader';
 
 export default function MessageDetails({route}: MessageScreenProps) {
-  console.log(route);
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    if (route.params.item) {
+      setUser(route.params.item);
+    }
+  }, [route.params.item]);
+
+  console.log(user);
   return (
     <View>
-      <MessageHeader />
+      <MessageHeader user={user} />
     </View>
   );
 }

@@ -1,6 +1,7 @@
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import type {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
 import {ParamListBase, RouteProp} from '@react-navigation/native';
+import {ImageSourcePropType} from 'react-native';
 
 export type RouteParamList = {
   SignUp: undefined;
@@ -8,7 +9,16 @@ export type RouteParamList = {
   Contacts: undefined;
   Chats: undefined;
   BottomTab: undefined;
-  Message: undefined;
+  Message: {
+    item: {
+      id: number;
+      name: string;
+      uri: ImageSourcePropType;
+      subText: string;
+      messageCount: number;
+      lastSeen?: string;
+    };
+  };
 };
 
 export type SingUpScreenProps = NativeStackScreenProps<
@@ -23,7 +33,10 @@ export type BottomTabScreenProps = NativeStackScreenProps<
   RouteParamList,
   'BottomTab'
 >;
-export type MessageScreenProps = NativeStackScreenProps<RouteParamList, 'Message'>;
+export type MessageScreenProps = NativeStackScreenProps<
+  RouteParamList,
+  'Message'
+>;
 
 export type ChatsScreenProps = {
   navigation: BottomTabNavigationProp<ParamListBase>;

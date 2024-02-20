@@ -1,9 +1,28 @@
-import {StyleSheet, Text, TouchableOpacity, Image, View} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  Image,
+  View,
+  ImageSourcePropType,
+} from 'react-native';
 import React from 'react';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+interface User {
+  id: number;
+  name: string;
+  uri: ImageSourcePropType;
+  subText: string;
+  messageCount: number;
+  lastSeen?: string;
+}
 
-export default function MessageHeader() {
+interface MessageHeaderProps {
+  user: User; // User tipine göre belirleyin
+}
+export default function MessageHeader({user}: MessageHeaderProps) {
+  const imagePath = user.uri;
   return (
     <View style={styles.header}>
       <TouchableOpacity style={styles.plus}>
@@ -14,11 +33,11 @@ export default function MessageHeader() {
           color={'#A3A3A3'}
         />
       </TouchableOpacity>
-      <View style={{flex: 1}}>
-        <Image />
+      <View style={{...styles.middle, flex: 1}}>
+        <Image source={imagePath} />
         <View>
-          <Text></Text>
-          <Text></Text>
+          <Text style={styles.text}>{user.name}</Text>
+          <Text style={styles.subText}>{user.lastSeen}</Text>
         </View>
       </View>
       <View style={styles.right}>
@@ -45,7 +64,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   plus: {padding: 7, backgroundColor: '#fafafa'},
-  text: {fontSize: 23, fontWeight: 'bold', color: '#000'},
-  avatar: {position: 'relative'},
+  middle: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    marginLeft: 30,
+    alignItems: 'center',
+    columnGap: 20,
+  },
+  text: {fontSize: 16, fontWeight: 'bold', color: '#111111'},
+  subText: {fontSize: 12, color: '#FF9134'},
   right: {flexDirection: 'row', columnGap: 10},
 });

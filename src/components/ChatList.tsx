@@ -10,7 +10,7 @@ import React from 'react';
 import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
 import {ParamListBase} from '@react-navigation/native';
 
-interface ChatListProps {
+export interface ChatListProps {
   item: {
     id: number;
     name: string;
