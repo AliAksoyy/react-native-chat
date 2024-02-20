@@ -51,7 +51,7 @@ const Login: React.FC<LoginProps> = ({
   const handleBtn = () => {
     if (forgotPassword) {
       setLogin(true);
-      navigation.navigate('Contacts');
+      navigation.navigate('BottomTab');
     } else {
       navigation.navigate('SignIn');
     }

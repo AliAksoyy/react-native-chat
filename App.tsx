@@ -1,16 +1,13 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {LoginProvider, useLoginContext} from './src/context/LoginContext';
+import {LoginProvider} from './src/context/LoginContext';
 import AuthStackScreen from './src/routes/AuthStackScreen';
-import TabStackScreen from './src/routes/TabStackScreen';
 
 export default function App() {
-  const {login} = useLoginContext();
-
   return (
     <LoginProvider>
       <NavigationContainer>
-        {!login ? <AuthStackScreen /> : <TabStackScreen />}
+        <AuthStackScreen />
       </NavigationContainer>
     </LoginProvider>
   );

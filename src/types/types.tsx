@@ -6,6 +6,7 @@ export type RouteParamList = {
   SignIn: undefined;
   Contacts: undefined;
   Chats: undefined;
+  BottomTab: undefined;
 };
 
 export type SingUpScreenProps = NativeStackScreenProps<
