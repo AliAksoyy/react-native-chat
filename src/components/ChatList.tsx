@@ -7,6 +7,8 @@ import {
   Image,
 } from 'react-native';
 import React from 'react';
+import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
+import {ParamListBase} from '@react-navigation/native';
 
 interface ChatListProps {
   item: {
@@ -17,6 +19,7 @@ interface ChatListProps {
     messageCount: number;
     lastSeen?: string;
   };
+  navigation: BottomTabNavigationProp<ParamListBase>;
 }
 
 export default function ChatList({navigation, item}: ChatListProps) {
