@@ -29,9 +29,7 @@ export default function TabStackScreen() {
           component={ContactScreen}
           options={{
             tabBarIcon: ({color, focused, size}) => (
-              <TouchableOpacity>
-                <Feather name="users" size={25} color={color} />
-              </TouchableOpacity>
+              <Feather name="users" size={size} color={color} />
             ),
           }}
         />
@@ -40,9 +38,7 @@ export default function TabStackScreen() {
           component={ChatsScreen}
           options={{
             tabBarIcon: ({color, focused, size}) => (
-              <TouchableOpacity>
-                <Ionicons name="chatbubble-outline" size={25} color={color} />
-              </TouchableOpacity>
+              <Ionicons name="chatbubble-outline" size={size} color={color} />
             ),
           }}
         />
