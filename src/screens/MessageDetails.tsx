@@ -4,7 +4,7 @@ import {MessageScreenProps} from '../types/types';
 import MessageHeader from '../components/MessageHeader';
 
 export default function MessageDetails({route}: MessageScreenProps) {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState<any>({});
 
   useEffect(() => {
     if (route.params.item) {
