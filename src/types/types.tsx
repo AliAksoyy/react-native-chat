@@ -17,6 +17,10 @@ export type SingInScreenProps = NativeStackScreenProps<
   RouteParamList,
   'SignIn'
 >;
+export type BottomTabScreenProps = NativeStackScreenProps<
+  RouteParamList,
+  'BottomTab'
+>;
 export type ContactsScreenProps = BottomTabNavigationProp<
   RouteParamList,
   'Contacts'
