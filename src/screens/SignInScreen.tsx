@@ -3,7 +3,7 @@ import React from 'react';
 import Login from '../components/Login';
 import {SingInScreenProps} from '../types/types';
 
-export default function SignInScreen({navigation}: SingInScreenProps) {
+export default function SignInScreen({navigation, route}: SingInScreenProps) {
   return (
     <View style={styles.container}>
       <Image
@@ -15,6 +15,7 @@ export default function SignInScreen({navigation}: SingInScreenProps) {
         innerText={'Sign Up Here'}
         forgotPassword={true}
         navigation={navigation}
+        route={route}
       />
     </View>
   );

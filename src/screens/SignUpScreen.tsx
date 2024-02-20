@@ -14,6 +14,7 @@ export default function SignUpScreen({navigation}: SingUpScreenProps) {
         innerText={'Login Here'}
         forgotPassword={false}
         navigation={navigation}
+        
       />
     </View>
   );

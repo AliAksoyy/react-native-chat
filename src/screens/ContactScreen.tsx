@@ -9,8 +9,9 @@ import {
 import React from 'react';
 import {data} from '../data/data';
 import ContentList from '../components/ContentList';
+import {ContactsScreenProps} from '../types/types';
 
-export default function ContactScreen({navigation}: ContactsScreenProps) {
+export default function ContactScreen({}: ContactsScreenProps) {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
