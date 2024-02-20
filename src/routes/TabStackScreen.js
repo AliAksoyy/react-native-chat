@@ -17,6 +17,7 @@ export default function TabStackScreen() {
       <Tab.Group
         screenOptions={{
           tabBarActiveTintColor: '#FF9134',
+          tabBarInactiveTintColor: '#2e2c2c',
           tabBarLabelStyle: {
             fontSize: 14,
             fontWeight: '500',
