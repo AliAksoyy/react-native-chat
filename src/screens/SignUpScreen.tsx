@@ -1,5 +1,4 @@
 import {StyleSheet, View, Image} from 'react-native';
-import React from 'react';
 import Login from '../components/Login';
 import {SingUpScreenProps} from '../types/types';
 

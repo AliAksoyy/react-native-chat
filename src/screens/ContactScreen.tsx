@@ -7,11 +7,10 @@ import {
   FlatList,
 } from 'react-native';
 import React from 'react';
-import {ContactScreenProps} from '../types/types';
 import {data} from '../data/data';
 import ContentList from '../components/ContentList';
 
-export default function ContactScreen({navigation}: ContactScreenProps) {
+export default function ContactScreen({navigation}: ContactsScreenProps) {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
