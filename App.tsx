@@ -6,7 +6,6 @@ import TabStackScreen from './src/routes/TabStackScreen';
 
 export default function App() {
   const {login} = useLoginContext();
-  console.log(false);
 
   return (
     <LoginProvider>

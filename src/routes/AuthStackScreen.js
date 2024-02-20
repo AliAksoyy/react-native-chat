@@ -7,7 +7,7 @@ const Stack = createNativeStackNavigator();
 
 export default function AuthStackScreen() {
   return (
-    <Stack.Navigator initialRouteName="SignUp">
+    <Stack.Navigator>
       <Stack.Screen
         name="SignUp"
         component={SignUpScreen}

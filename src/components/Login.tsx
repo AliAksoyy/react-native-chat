@@ -39,8 +39,6 @@ const Login: React.FC<LoginProps> = ({
   const [value, setValue] = useState<ValueState>({email: '', password: ''});
 
   console.log(navigation);
-  console.log(route);
-
   const {setLogin} = useLoginContext();
 
   const handlePress = () => {
