@@ -19,11 +19,13 @@ interface ChatListProps {
   };
 }
 
-export default function ChatList({item}: ChatListProps) {
+export default function ChatList({navigation, item}: ChatListProps) {
   const imagePath = item.uri;
   return (
     <View style={styles.view}>
-      <TouchableOpacity style={styles.container}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Message')}
+        style={styles.container}>
         <View>
           <Image source={imagePath} />
         </View>

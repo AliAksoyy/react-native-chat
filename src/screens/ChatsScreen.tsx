@@ -5,14 +5,16 @@ import {data} from '../data/data';
 import ContentHeader from '../components/ContentHeader';
 import ChatList from '../components/ChatList';
 
-export default function ChatsScreen({}: ChatsScreenProps) {
+export default function ChatsScreen({navigation}: ChatsScreenProps) {
   return (
     <View style={styles.container}>
       <ContentHeader title="Chats" />
       <View style={styles.content}>
         <FlatList
           data={data}
-          renderItem={({item}) => <ChatList item={item} />}
+          renderItem={({item}) => (
+            <ChatList navigation={navigation} item={item} />
+          )}
           keyExtractor={item => item.id.toString()}
           ItemSeparatorComponent={() => (
             <View style={{backgroundColor: '#F5F5F5', height: 2}} />
