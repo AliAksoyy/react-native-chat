@@ -33,9 +33,11 @@ export default function ChatList({item}: ChatListProps) {
         </View>
         <View style={styles.contentRight}>
           <Text style={styles.message}>{item.lastSeen}</Text>
-          <View style={styles.messageCountContainer}>
-            <Text style={styles.messageCount}>{item.messageCount}</Text>
-          </View>
+          {Boolean(item.messageCount) && (
+            <View style={styles.messageCountContainer}>
+              <Text style={styles.messageCount}>{item.messageCount}</Text>
+            </View>
+          )}
         </View>
       </TouchableOpacity>
     </View>
@@ -64,11 +66,13 @@ const styles = StyleSheet.create({
   },
   message: {fontWeight: '600', color: '#0000003b', fontSize: 12},
   messageCountContainer: {
+    width: 20,
+    height: 20,
     alignSelf: 'flex-end',
-    padding: 4,
-    width: 5,
-    height: 11,
+    justifyContent: 'center',
     backgroundColor: '#FF9134',
+    marginTop: 3,
+    borderRadius: 10,
   },
-  messageCount: {color: 'white'},
+  messageCount: {textAlign: 'center', fontSize: 12, color: 'white'},
 });
