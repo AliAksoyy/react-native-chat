@@ -1,13 +1,29 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, FlatList, View} from 'react-native';
 import React from 'react';
 import {ChatsScreenProps} from '../types/types';
+import {data} from '../data/data';
+import ContentHeader from '../components/ContentHeader';
+import ContentList from '../components/ContentList';
 
 export default function ChatsScreen({}: ChatsScreenProps) {
   return (
-    <View>
-      <Text>ChatsScreen</Text>
+    <View style={styles.container}>
+      <ContentHeader title="Chats" />
+      <View style={styles.content}>
+        <FlatList
+          data={data}
+          renderItem={({item}) => <ContentList item={item} />}
+          keyExtractor={item => item.id.toString()}
+          ItemSeparatorComponent={() => (
+            <View style={{backgroundColor: '#F5F5F5', height: 2}} />
+          )}
+        />
+      </View>
     </View>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {flex: 1, backgroundColor: '#fff'},
+  content: {flex: 1},
+});
