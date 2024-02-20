@@ -29,6 +29,9 @@ export default function ContactScreen({}: ContactsScreenProps) {
           data={data}
           renderItem={({item}) => <ContentList item={item} />}
           keyExtractor={item => item.id.toString()}
+          ItemSeparatorComponent={() => (
+            <View style={{backgroundColor: '#F5F5F5', height: 2}} />
+          )}
         />
       </View>
     </View>
