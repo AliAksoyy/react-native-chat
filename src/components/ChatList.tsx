@@ -27,7 +27,7 @@ export default function ChatList({navigation, item}: ChatListProps) {
   return (
     <View style={styles.view}>
       <TouchableOpacity
-        onPress={() => navigation.navigate('Message')}
+        onPress={() => navigation.navigate('Message', {item})}
         style={styles.container}>
         <View>
           <Image source={imagePath} />

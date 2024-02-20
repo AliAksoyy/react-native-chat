@@ -8,6 +8,7 @@ export type RouteParamList = {
   Contacts: undefined;
   Chats: undefined;
   BottomTab: undefined;
+  Message: undefined;
 };
 
 export type SingUpScreenProps = NativeStackScreenProps<
@@ -22,6 +23,7 @@ export type BottomTabScreenProps = NativeStackScreenProps<
   RouteParamList,
   'BottomTab'
 >;
+export type MessageScreenProps = NativeStackScreenProps<RouteParamList, 'Message'>;
 
 export type ChatsScreenProps = {
   navigation: BottomTabNavigationProp<ParamListBase>;
