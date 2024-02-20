@@ -14,34 +14,39 @@ export default function TabStackScreen() {
       screenOptions={{
         tabBarStyle: {height: 65, paddingVertical: 10},
       }}>
-      <Tab.Screen
-        name="Contacts"
-        component={ContactScreen}
-        options={{
-          headerShown: false,
-          tabBarIcon: ({color, focused, size}) => (
-            <TouchableOpacity>
-              <Feather name="users" size={25} color={color} />
-            </TouchableOpacity>
-          ),
+      <Tab.Group
+        screenOptions={{
           tabBarActiveTintColor: '#FF9134',
-          tabBarLabelStyle: {fontSize: 14, fontWeight: '500', paddingBottom: 5},
-        }}
-      />
-      <Tab.Screen
-        name="Chats"
-        component={ChatsScreen}
-        options={{
+          tabBarLabelStyle: {
+            fontSize: 14,
+            fontWeight: '500',
+            paddingBottom: 5,
+          },
           headerShown: false,
-          tabBarIcon: ({color, focused, size}) => (
-            <TouchableOpacity>
-              <Ionicons name="chatbubble-outline" size={25} color={color} />
-            </TouchableOpacity>
-          ),
-          tabBarActiveTintColor: '#FF9134',
-          tabBarLabelStyle: {fontSize: 14, fontWeight: '500', paddingBottom: 5},
-        }}
-      />
+        }}>
+        <Tab.Screen
+          name="Contacts"
+          component={ContactScreen}
+          options={{
+            tabBarIcon: ({color, focused, size}) => (
+              <TouchableOpacity>
+                <Feather name="users" size={25} color={color} />
+              </TouchableOpacity>
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Chats"
+          component={ChatsScreen}
+          options={{
+            tabBarIcon: ({color, focused, size}) => (
+              <TouchableOpacity>
+                <Ionicons name="chatbubble-outline" size={25} color={color} />
+              </TouchableOpacity>
+            ),
+          }}
+        />
+      </Tab.Group>
     </Tab.Navigator>
   );
 }
