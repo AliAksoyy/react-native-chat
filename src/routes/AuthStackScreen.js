@@ -2,6 +2,7 @@ import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import SignUpScreen from '../screens/SignUpScreen';
 import SignInScreen from '../screens/SignInScreen';
+import MessageDetails from '../screens/MessageDetails';
 import {useLoginContext} from '../context/LoginContext';
 import TabStackScreen from './TabStackScreen';
 
@@ -25,11 +26,18 @@ export default function AuthStackScreen() {
           />
         </>
       ) : (
-        <Stack.Screen
-          name="BottomTab"
-          component={TabStackScreen}
-          options={{headerShown: false}}
-        />
+        <>
+          <Stack.Screen
+            name="BottomTab"
+            component={TabStackScreen}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Message"
+            component={MessageDetails}
+            options={{headerShown: false}}
+          />
+        </>
       )}
     </Stack.Navigator>
   );
