@@ -17,6 +17,7 @@ export default function ContactScreen({}: ContactsScreenProps) {
           ItemSeparatorComponent={() => (
             <View style={{backgroundColor: '#F5F5F5', height: 2}} />
           )}
+          showsVerticalScrollIndicator={false}
         />
       </View>
     </View>

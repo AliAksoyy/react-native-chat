@@ -47,5 +47,3 @@ export default function TabStackScreen() {
     </Tab.Navigator>
   );
 }
-
-const styles = StyleSheet.create({});

@@ -17,6 +17,7 @@ export default function ChatsScreen({}: ChatsScreenProps) {
           ItemSeparatorComponent={() => (
             <View style={{backgroundColor: '#F5F5F5', height: 2}} />
           )}
+          showsVerticalScrollIndicator={false}
         />
       </View>
     </View>
