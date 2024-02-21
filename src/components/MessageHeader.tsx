@@ -41,10 +41,15 @@ export default function MessageHeader({navigation, user}: MessageHeaderProps) {
         />
       </TouchableOpacity>
       <View style={{...styles.middle, flex: 1}}>
-        {user.uri && <Image source={imagePath} />}
+        {user.uri && (
+          <View style={{position: 'relative'}}>
+            <Image source={imagePath} />
+            <View style={styles.active} />
+          </View>
+        )}
         <View>
           <Text style={styles.text}>{user.name}</Text>
-          <Text style={styles.subText}>{user.lastSeen}</Text>
+          <Text style={styles.subText}>Online now</Text>
         </View>
       </View>
       <View style={styles.right}>
@@ -77,6 +82,14 @@ const styles = StyleSheet.create({
     marginLeft: 30,
     alignItems: 'center',
     columnGap: 20,
+  },
+  active: {
+    width: 10,
+    height: 10,
+    backgroundColor: '#14cf14',
+    top: -37,
+    right: -36,
+    borderRadius: 5,
   },
   text: {fontSize: 16, fontWeight: 'bold', color: '#111111'},
   subText: {fontSize: 12, color: '#FF9134'},
