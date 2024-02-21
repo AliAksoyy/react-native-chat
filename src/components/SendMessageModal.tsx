@@ -35,9 +35,15 @@ export default function SendMessageModal({
               style={styles.emailImage}
               source={require('../assests/imgs/email.png')}
             />
-            <TextInput value={"alberto@gmail.com"} style={styles.inputEmail} placeholder="Enter Mail" />
+            <TextInput
+              value={'alberto@gmail.com'}
+              style={styles.inputEmail}
+              placeholder="Enter Mail"
+            />
           </View>
-          <TouchableOpacity style={styles.btn}>
+          <TouchableOpacity
+            onPress={() => setModalVisible(!modalVisible)}
+            style={styles.btn}>
             <Text style={styles.btnText}>Message</Text>
             <MaterialIcons name="send" color="#FF9134" size={24} />
           </TouchableOpacity>
