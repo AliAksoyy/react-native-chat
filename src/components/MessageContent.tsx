@@ -16,7 +16,7 @@ export default function MessageContent() {
   const windowWidth = (Math.floor(Dimensions.get('window').width) * 2) / 3;
 
   const styles = StyleSheet.create({
-    container: {flex: 1, margin: 25},
+    container: {flex: 1, marginHorizontal: 25, marginTop: 15},
 
     messageContainer: {
       marginVertical: 10,
