@@ -49,10 +49,12 @@ export default function MessageContent() {
           return (
             <View key={index}>
               <LinearGradient
+                start={{x: 0, y: 0}}
+                end={{x: 1, y: 0}}
                 colors={
                   index % 2 === 0
-                    ? ['#e2dfdf', '#a11d1d'] // Sadece bir renk kullanmak istiyorsanız
-                    : ['#a88568', '#FF9134'] // Sadece bir renk kullanmak istiyorsanız
+                    ? ['#ece8e8', '#dbd8d8']
+                    : ['#f5ad72', '#FF9134']
                 }
                 style={[
                   index % 2 === 0
