@@ -3,12 +3,16 @@ import {StyleSheet, Text, TouchableOpacity, Image, View} from 'react-native';
 
 interface ContentHeaderProps {
   title: string;
+  handleOpenModal: () => void;
 }
 
-const ContentHeader: React.FC<ContentHeaderProps> = ({title}) => {
+const ContentHeader: React.FC<ContentHeaderProps> = ({
+  handleOpenModal,
+  title,
+}) => {
   return (
     <View style={styles.header}>
-      <TouchableOpacity style={styles.plus}>
+      <TouchableOpacity onPress={handleOpenModal} style={styles.plus}>
         <Image source={require('../assests/imgs/plus.png')} />
       </TouchableOpacity>
       <Text style={styles.text}>{title}</Text>
