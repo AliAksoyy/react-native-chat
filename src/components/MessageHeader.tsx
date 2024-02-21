@@ -40,9 +40,16 @@ export default function MessageHeader({navigation, user}: MessageHeaderProps) {
           color={'#A3A3A3'}
         />
       </TouchableOpacity>
-      <View style={{...styles.middle, flex: 1}}>
+      <View
+        style={{
+          ...styles.middle,
+          flex: 1,
+        }}>
         {user.uri && (
-          <View style={{position: 'relative'}}>
+          <View
+            style={{
+              position: 'relative',
+            }}>
             <Image source={imagePath} />
             <View style={styles.active} />
           </View>
@@ -82,6 +89,8 @@ const styles = StyleSheet.create({
     marginLeft: 30,
     alignItems: 'center',
     columnGap: 20,
+   
+    marginTop: 8,
   },
   active: {
     width: 10,
