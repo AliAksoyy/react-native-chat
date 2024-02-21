@@ -1,22 +1,46 @@
-import {StyleSheet, Text, View, Modal, Pressable} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Modal,
+  Pressable,
+  Image,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native';
 import React from 'react';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 interface SendMessageState {
   modalVisible: boolean;
   setModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function SendMessageModal({modalVisible, setModalVisible}: SendMessageState) {
+export default function SendMessageModal({
+  modalVisible,
+  setModalVisible,
+}: SendMessageState) {
   return (
     <Modal animationType="slide" transparent={true} visible={modalVisible}>
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
-          <Text style={styles.modalText}>Hello World!</Text>
-          <Pressable
+          <Text style={styles.modalText}>Start new chat</Text>
+          {/* <Pressable
             style={[styles.button, styles.buttonClose]}
             onPress={() => setModalVisible(!modalVisible)}>
             <Text style={styles.textStyle}>Hide Modal</Text>
-          </Pressable>
+          </Pressable> */}
+          <View style={{width: '100%'}}>
+            <Image
+              style={styles.emailImage}
+              source={require('../assests/imgs/email.png')}
+            />
+            <TextInput value={"alberto@gmail.com"} style={styles.inputEmail} placeholder="Enter Mail" />
+          </View>
+          <TouchableOpacity style={styles.btn}>
+            <Text style={styles.btnText}>Message</Text>
+            <MaterialIcons name="send" color="#FF9134" size={24} />
+          </TouchableOpacity>
         </View>
       </View>
     </Modal>
@@ -31,8 +55,8 @@ const styles = StyleSheet.create({
     marginTop: 22,
   },
   modalView: {
-    margin: 20,
     backgroundColor: 'white',
+    width: 300,
     borderRadius: 20,
     padding: 35,
     alignItems: 'center',
@@ -43,26 +67,35 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5,
+    elevation: 10,
+  },
+  emailImage: {
+    position: 'absolute',
+    top: '20%',
+    left: 10,
+    borderWidth: 2,
+    zIndex: 1,
+  },
+  inputEmail: {
+    backgroundColor: '#eee',
+    borderRadius: 10,
+    paddingLeft: 45,
+    marginBottom: 20,
+    fontSize: 17,
+    width: '100%',
   },
   button: {
     borderRadius: 20,
     padding: 10,
     elevation: 2,
   },
-  buttonOpen: {
-    backgroundColor: '#F194FF',
-  },
-  buttonClose: {
-    backgroundColor: '#2196F3',
-  },
-  textStyle: {
-    color: 'white',
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
   modalText: {
-    marginBottom: 15,
+    marginBottom: 20,
     textAlign: 'center',
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#1a1919',
   },
+  btn: {flexDirection: 'row', alignItems: 'center'},
+  btnText: {color: '#FF9134', marginRight: 7, fontWeight: '400', fontSize: 17},
 });
