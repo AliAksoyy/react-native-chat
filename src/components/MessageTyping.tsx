@@ -33,6 +33,6 @@ const styles = StyleSheet.create({
 
     justifyContent: 'space-between',
   },
-  input: {flex: 1, fontSize: 18, color: '262626'},
+  input: {flex: 1, fontSize: 18, color: '#262626'},
   btn: {padding: 7, backgroundColor: '#fafafa'},
 });

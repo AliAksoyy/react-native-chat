@@ -1,5 +1,6 @@
 import {ScrollView, StyleSheet, Text, View, Dimensions} from 'react-native';
 import React, {useState} from 'react';
+import LinearGradient from 'react-native-linear-gradient';
 
 export default function MessageContent() {
   const [message, setMessage] = useState({
@@ -24,10 +25,9 @@ export default function MessageContent() {
       borderRadius: 25,
       width: windowWidth,
     },
-    messageContainerLeft: {alignSelf: 'flex-start', backgroundColor: '#e2dfdf'},
+    messageContainerLeft: {alignSelf: 'flex-start'},
     messageContainerRight: {
       alignSelf: 'flex-end',
-      backgroundColor: '#FF9134',
     },
     message: {
       textAlign: 'left',
@@ -47,15 +47,19 @@ export default function MessageContent() {
         .flat()
         .map((message, index) => {
           return (
-            <View>
-              <View
+            <View key={index}>
+              <LinearGradient
+                colors={
+                  index % 2 === 0
+                    ? ['#e2dfdf', '#a11d1d'] // Sadece bir renk kullanmak istiyorsanız
+                    : ['#a88568', '#FF9134'] // Sadece bir renk kullanmak istiyorsanız
+                }
                 style={[
                   index % 2 === 0
                     ? styles.messageContainerLeft
                     : styles.messageContainerRight,
                   styles.messageContainer,
-                ]}
-                key={index}>
+                ]}>
                 <Text
                   style={[
                     index % 2 === 0 ? styles.messageLeft : styles.messageRight,
@@ -63,7 +67,7 @@ export default function MessageContent() {
                   ]}>
                   {message}
                 </Text>
-              </View>
+              </LinearGradient>
             </View>
           );
         })}
