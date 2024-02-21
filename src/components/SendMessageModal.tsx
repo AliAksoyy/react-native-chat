@@ -3,7 +3,6 @@ import {
   Text,
   View,
   Modal,
-  Pressable,
   Image,
   TextInput,
   TouchableOpacity,
@@ -25,11 +24,6 @@ export default function SendMessageModal({
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
           <Text style={styles.modalText}>Start new chat</Text>
-          {/* <Pressable
-            style={[styles.button, styles.buttonClose]}
-            onPress={() => setModalVisible(!modalVisible)}>
-            <Text style={styles.textStyle}>Hide Modal</Text>
-          </Pressable> */}
           <View style={{width: '100%'}}>
             <Image
               style={styles.emailImage}

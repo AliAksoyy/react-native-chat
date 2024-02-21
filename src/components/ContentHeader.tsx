@@ -3,7 +3,7 @@ import {StyleSheet, Text, TouchableOpacity, Image, View} from 'react-native';
 
 interface ContentHeaderProps {
   title: string;
-  handleOpenModal: () => void;
+  handleOpenModal?:()=>void
 }
 
 const ContentHeader: React.FC<ContentHeaderProps> = ({

@@ -7,6 +7,8 @@ import {
   ImageSourcePropType,
 } from 'react-native';
 import React from 'react';
+import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
+import {ParamListBase} from '@react-navigation/native';
 
 interface ContentListProps {
   item: {
@@ -17,9 +19,10 @@ interface ContentListProps {
     messageCount: number;
     lastSeen?: string;
   };
+  navigation: BottomTabNavigationProp<ParamListBase>;
 }
 
-export default function ContentList({item}: ContentListProps) {
+export default function ContentList({navigation, item}: ContentListProps) {
   const imagePath = item.uri;
 
   return (
@@ -32,7 +35,10 @@ export default function ContentList({item}: ContentListProps) {
         <Text style={styles.contentSubText}>last seen recently</Text>
       </View>
       <View>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('Message', {item});
+          }}>
           <Text style={styles.message}>Message</Text>
         </TouchableOpacity>
       </View>
