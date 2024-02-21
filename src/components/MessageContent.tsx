@@ -5,11 +5,11 @@ export default function MessageContent() {
   const [message, setMessage] = useState({
     message: [
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. A, neque.Eaque expedita ab harum deserunt',
-      'Aliquid exercitationem officialaborum impedit Lorem ipsum dolor sit amet consectetur adipisicing elit. ',
-      'A, neque.Eaque expedita ab harum deserunt! Aliquid exercitationem officialaborum impedit ',
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. ',
+      'A, exercitationem officialaborum impedit ',
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. A, neque.Eaque expedita ab harum deserunt',
       'Aliquid exercitationem officialaborum impedit Lorem ipsum dolor sit amet consectetur adipisicing elit. ',
-      'A, neque.Eaque expedita ab harum deserunt! Aliquid exercitationem officialaborum impedit ',
+      'A, neque.Eaque expedita ab harum deserunt! ',
     ],
   });
 
