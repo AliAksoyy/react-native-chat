@@ -21,7 +21,6 @@ const authSlice = createSlice({
         state.error = false;
       })
       .addCase(registerAction.fulfilled, (state, {payload}) => {
-        console.log('payload', payload);
         state.loading = false;
         state.error = false;
         state.logined = true;
@@ -33,7 +32,6 @@ const authSlice = createSlice({
         );
       })
       .addCase(registerAction.rejected, (state, {error}) => {
-        console.log('error', error);
         state.loading = false;
         state.error = true;
         state.user = null;
