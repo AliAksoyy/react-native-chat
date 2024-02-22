@@ -20,7 +20,6 @@ const authSlice = createSlice({
         state.error = false;
       })
       .addCase(registerAction.fulfilled, (state, {payload}) => {
-        console.log('payload', payload);
         state.loading = false;
         state.error = false;
         state.user = payload.data.email;
@@ -33,7 +32,7 @@ const authSlice = createSlice({
       .addCase(registerAction.rejected, (state, {error}) => {
         state.loading = false;
         state.error = true;
-        
+
         const errorMessage =
           error instanceof Error
             ? error.message
