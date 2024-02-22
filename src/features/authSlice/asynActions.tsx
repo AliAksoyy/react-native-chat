@@ -1,7 +1,6 @@
-import {AxiosResponse} from 'axios';
+import {AxiosError, AxiosResponse} from 'axios';
 import {AsyncThunk, createAsyncThunk} from '@reduxjs/toolkit';
 import getAxiosInstance from '../../api/getAxiosInstance';
-
 
 const axiosInstance = getAxiosInstance();
 
@@ -20,9 +19,12 @@ const registerAction: AsyncThunk<any, RegisterActionParams, {}> =
         value,
       );
       return res.data;
-    } catch (error) {
-      console.log('aaa', error);
-      throw error?.response.data;
+    } catch (error: unknown) {
+      if (error instanceof AxiosError) {
+        throw error.response?.data;
+      } else {
+        console.error('Beklenmeyen bir hata oluştu');
+      }
     }
   });
 

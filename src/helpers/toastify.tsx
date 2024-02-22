@@ -1,6 +1,6 @@
 import Toast from 'react-native-toast-message';
 
-export  enum Type {
+export enum Type {
   success = 'success',
   error = 'error',
   tomatoToast = 'tomatoToast',

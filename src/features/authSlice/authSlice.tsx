@@ -31,10 +31,14 @@ const authSlice = createSlice({
         );
       })
       .addCase(registerAction.rejected, (state, {error}) => {
-        console.log('error', error);
         state.loading = false;
         state.error = true;
-        toastifyMessage(Type.error, error.message);
+        
+        const errorMessage =
+          error instanceof Error
+            ? error.message
+            : error.message || 'Bir hata oluştu';
+        toastifyMessage(Type.error, errorMessage);
       });
   },
 });
