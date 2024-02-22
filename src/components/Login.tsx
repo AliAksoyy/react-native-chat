@@ -12,7 +12,7 @@ import {RouteParamList} from '../types/types';
 import {useLoginContext} from '../context/LoginContext';
 import {RouteProp} from '@react-navigation/native';
 import {useDispatch} from 'react-redux';
-import {registerAction} from '../features/authSlice/asynActions';
+import {loginAction, registerAction} from '../features/authSlice/asynActions';
 import {AppDispatch} from '../app/store';
 import Toast from 'react-native-toast-message';
 import {Type, toastifyMessage} from '../helpers/toastify';
@@ -56,7 +56,7 @@ const Login: React.FC<LoginProps> = ({
   };
   const handleBtn = () => {
     if (forgotPassword) {
-      // setLogin(true);
+      dispatch(loginAction({value}));
     } else {
       dispatch(registerAction({value})).then(res => {
         if (res.error?.message === 'EMAIL_ALREADY_REGISTERED') {

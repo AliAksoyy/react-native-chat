@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {registerAction} from './asynActions';
+import {loginAction, registerAction} from './asynActions';
 import {Type, toastifyMessage} from '../../helpers/toastify';
 
 const initialState = {
@@ -43,6 +43,33 @@ const authSlice = createSlice({
             ? error.message
             : error.message || 'Bir hata oluştu';
         toastifyMessage(Type.error, errorMessage);
+      });
+    builder
+      .addCase(loginAction.pending, (state, {payload}) => {
+        state.loading = true;
+        state.error = false;
+      })
+      .addCase(loginAction.fulfilled, (state, {payload}) => {
+        state.loading = false;
+        state.error = false;
+        state.logined = true;
+        state.user = payload.data.email;
+        state.token = payload.data.token;
+        toastifyMessage(
+          Type.success,
+          `${payload.data.email} successfully logined`,
+        );
+      })
+      .addCase(loginAction.rejected, (state, {error}) => {
+        state.loading = false;
+        state.error = true;
+        state.user = null;
+        state.token = null;
+        state.logined = false;
+
+         if (error && error.message) {
+           toastifyMessage(Type.error, error.message);
+         } 
       });
   },
 });

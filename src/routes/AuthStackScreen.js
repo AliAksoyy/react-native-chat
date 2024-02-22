@@ -9,7 +9,8 @@ import {useSelector} from 'react-redux';
 const Stack = createNativeStackNavigator();
 
 export default function AuthStackScreen() {
-  const {logined} = useSelector(state => state.auth);
+  const {logined, user,token} = useSelector(state => state.auth);
+  console.log(token);
 
   return (
     <Stack.Navigator>
