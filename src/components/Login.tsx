@@ -15,6 +15,7 @@ import {useDispatch} from 'react-redux';
 import {registerAction} from '../features/authSlice/asynActions';
 import {AppDispatch} from '../app/store';
 import Toast from 'react-native-toast-message';
+import {Type, toastifyMessage} from '../helpers/toastify';
 
 interface LoginProps {
   title: string;
@@ -58,11 +59,7 @@ const Login: React.FC<LoginProps> = ({
       // setLogin(true);
     } else {
       dispatch(registerAction({value}));
-      Toast.show({
-        type: 'success',
-        text1: 'Hello',
-        text2: 'This is some something 👋',
-      });
+      toastifyMessage(Type.success, 'sadasdsa0');
       navigation.navigate('SignIn');
     }
   };
