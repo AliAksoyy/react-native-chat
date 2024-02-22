@@ -38,7 +38,7 @@ export default function AuthStackScreen() {
   }
   return (
     <Stack.Navigator>
-      {!user && loading ? (
+      {!user ? (
         <>
           <Stack.Screen
             name="SignUp"
