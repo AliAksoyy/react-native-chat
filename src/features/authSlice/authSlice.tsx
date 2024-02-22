@@ -8,7 +8,6 @@ const initialState = {
   loading: false,
   logined: false,
   error: false,
-  token: null,
 };
 
 const authSlice = createSlice({
@@ -36,7 +35,6 @@ const authSlice = createSlice({
         state.loading = false;
         state.error = true;
         state.user = null;
-        state.token = null;
         state.logined = false;
 
         const errorMessage =
@@ -55,7 +53,7 @@ const authSlice = createSlice({
         state.error = false;
         state.logined = true;
         state.user = payload.data.email;
-        state.token = payload.token;
+        storageSetToken(payload.token);
         toastifyMessage(
           Type.success,
           `${payload.data.email} successfully logined`,
@@ -65,7 +63,6 @@ const authSlice = createSlice({
         state.loading = false;
         state.error = true;
         state.user = null;
-        state.token = null;
         state.logined = false;
 
         if (error && error.message) {
