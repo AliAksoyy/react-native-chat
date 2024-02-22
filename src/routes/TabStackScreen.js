@@ -7,6 +7,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useDispatch} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
+import {logoutAction} from '../features/authSlice/asynActions';
 
 const Tab = createBottomTabNavigator();
 
@@ -15,8 +16,8 @@ const LogoutButton = () => {
   const navigation = useNavigation();
 
   const handleLogout = () => {
-    // dispatch(signOutAction());
-    navigation.navigate('SignIn'); 
+    dispatch(logoutAction());
+    navigation.navigate('SignIn');
   };
 
   return <TouchableOpacity onPress={handleLogout}></TouchableOpacity>;

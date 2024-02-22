@@ -54,9 +54,13 @@ const loginAction: AsyncThunk<any, LoginActionParams, {}> = createAsyncThunk(
   },
 );
 
+const logoutAction = createAsyncThunk('logoutAction', async () => {
+  const res: AxiosResponse<any> = await axiosInstance.post('/auth/logout');
+  return res.data;
+});
 const getProfileAction = createAsyncThunk('getProfileAction', async () => {
   const res: AxiosResponse<any> = await axiosInstance.get('/auth/getProfile');
   return res.data;
 });
 
-export {registerAction, loginAction, getProfileAction};
+export {registerAction, loginAction, getProfileAction, logoutAction};

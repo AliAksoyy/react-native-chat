@@ -1,7 +1,12 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {getProfileAction, loginAction, registerAction} from './asynActions';
+import {
+  getProfileAction,
+  loginAction,
+  logoutAction,
+  registerAction,
+} from './asynActions';
 import {Type, toastifyMessage} from '../../helpers/toastify';
-import {storageSetToken} from '../../utils/setToken';
+import {storageSetToken, storageClearToken} from '../../utils/setToken';
 
 const initialState = {
   user: null,
@@ -88,6 +93,14 @@ const authSlice = createSlice({
           toastifyMessage(Type.error, error.message);
         }
       });
+    builder.addCase(logoutAction.fulfilled, (state, {payload}) => {
+      state.loading = false;
+      state.error = false;
+      state.logined = false;
+      state.user = null;
+      storageClearToken();
+      toastifyMessage(Type.success, payload.data);
+    });
   },
 });
 

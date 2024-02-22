@@ -7,3 +7,10 @@ export const storageSetToken = async (data: string) => {
     console.error(error);
   }
 };
+export const storageClearToken = async () => {
+  try {
+    await AsyncStorage.removeItem('token');
+  } catch (error) {
+    console.error(error);
+  }
+};
