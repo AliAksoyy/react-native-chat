@@ -6,37 +6,42 @@ import MessageDetails from '../screens/MessageDetails';
 import TabStackScreen from './TabStackScreen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Loading from '../components/Loading';
+import {useDispatch, useSelector} from 'react-redux';
+import {getProfileAction} from '../features/authSlice/asynActions';
 
 const Stack = createNativeStackNavigator();
 
 export default function AuthStackScreen() {
-  const [token, setToken] = useState(null);
   const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
+  const {user} = useSelector(state => state.auth);
+
+  console.log(user);
 
   useEffect(() => {
     const getToken = async () => {
       try {
         setLoading(true);
         const token = await AsyncStorage.getItem('token');
-        setToken(token);
+        console.log(token);
+        if (token) {
+          dispatch(getProfileAction());
+        }
       } catch (error) {
         console.error(error);
       } finally {
         setLoading(false);
       }
     };
-
     getToken();
-  }, []);
-
-  console.log(token);
+  }, [dispatch]);
 
   if (loading) {
     return <Loading />;
   }
   return (
     <Stack.Navigator>
-      {!token ? (
+      {!user ? (
         <>
           <Stack.Screen
             name="SignUp"

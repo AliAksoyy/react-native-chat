@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 import React from 'react';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {useSelector} from 'react-redux';
+import {RootState} from '../app/store';
 
 interface SendMessageState {
   modalVisible: boolean;
@@ -19,6 +21,7 @@ export default function SendMessageModal({
   modalVisible,
   setModalVisible,
 }: SendMessageState) {
+  const {user} = useSelector((state: RootState) => state.auth);
   return (
     <Modal animationType="slide" transparent={true} visible={modalVisible}>
       <View style={styles.centeredView}>
@@ -30,7 +33,7 @@ export default function SendMessageModal({
               source={require('../assests/imgs/email.png')}
             />
             <TextInput
-              value={'alberto@gmail.com'}
+              value={user ? user : 'test@gmail.com'}
               style={styles.inputEmail}
               placeholder="Enter Mail"
             />

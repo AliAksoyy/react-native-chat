@@ -1,7 +1,6 @@
 import {AxiosError, AxiosResponse} from 'axios';
 import {AsyncThunk, createAsyncThunk} from '@reduxjs/toolkit';
 import getAxiosInstance from '../../api/getAxiosInstance';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const axiosInstance = getAxiosInstance();
 
@@ -57,6 +56,7 @@ const loginAction: AsyncThunk<any, LoginActionParams, {}> = createAsyncThunk(
 
 const getProfileAction = createAsyncThunk('getProfileAction', async () => {
   const res: AxiosResponse<any> = await axiosInstance.get('/auth/getProfile');
+  console.log('getProfile', res.data);
   return res.data;
 });
 
