@@ -55,4 +55,9 @@ const loginAction: AsyncThunk<any, LoginActionParams, {}> = createAsyncThunk(
   },
 );
 
-export {registerAction, loginAction};
+const getProfileAction = createAsyncThunk('getProfileAction', async () => {
+  const res: AxiosResponse<any> = await axiosInstance.get('/auth/getProfile');
+  return res.data;
+});
+
+export {registerAction, loginAction, getProfileAction};

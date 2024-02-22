@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {loginAction, registerAction} from './asynActions';
+import {getProfileAction, loginAction, registerAction} from './asynActions';
 import {Type, toastifyMessage} from '../../helpers/toastify';
 import {storageSetToken} from '../../utils/setToken';
 
@@ -64,6 +64,25 @@ const authSlice = createSlice({
         state.error = true;
         state.user = null;
         state.logined = false;
+
+        if (error && error.message) {
+          toastifyMessage(Type.error, error.message);
+        }
+      });
+    builder
+      .addCase(getProfileAction.pending, (state, {payload}) => {
+        state.loading = true;
+        state.error = false;
+      })
+      .addCase(getProfileAction.fulfilled, (state, {payload}) => {
+        state.loading = false;
+        state.error = false;
+        state.logined = true;
+        state.user = payload.data.email;
+      })
+      .addCase(getProfileAction.rejected, (state, {error}) => {
+        state.loading = false;
+        state.error = true;
 
         if (error && error.message) {
           toastifyMessage(Type.error, error.message);
