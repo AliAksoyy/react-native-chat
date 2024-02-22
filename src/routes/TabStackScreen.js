@@ -5,8 +5,22 @@ import ContactScreen from '../screens/ContactScreen';
 import ChatsScreen from '../screens/ChatsScreen';
 import Feather from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {useDispatch} from 'react-redux';
+import {useNavigation} from '@react-navigation/native';
 
 const Tab = createBottomTabNavigator();
+
+const LogoutButton = () => {
+  const dispatch = useDispatch();
+  const navigation = useNavigation();
+
+  const handleLogout = () => {
+    // dispatch(signOutAction());
+    navigation.navigate('SignIn'); 
+  };
+
+  return <TouchableOpacity onPress={handleLogout}></TouchableOpacity>;
+};
 
 export default function TabStackScreen() {
   return (
@@ -40,6 +54,15 @@ export default function TabStackScreen() {
           options={{
             tabBarIcon: ({color, focused, size}) => (
               <Ionicons name="chatbubble-outline" size={size} color={color} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Logout"
+          component={LogoutButton}
+          options={{
+            tabBarIcon: ({color, focused, size}) => (
+              <Ionicons name="log-out" size={size} color={color} />
             ),
           }}
         />
