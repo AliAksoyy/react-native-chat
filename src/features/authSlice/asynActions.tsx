@@ -1,6 +1,7 @@
 import {AxiosError, AxiosResponse} from 'axios';
 import {AsyncThunk, createAsyncThunk} from '@reduxjs/toolkit';
 import getAxiosInstance from '../../api/getAxiosInstance';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const axiosInstance = getAxiosInstance();
 
@@ -24,7 +25,7 @@ const registerAction: AsyncThunk<any, RegisterActionParams, {}> =
         '/auth/register',
         value,
       );
-      console.log('RESPONSEREGİSTER', res.data);
+
       return res.data;
     } catch (error: unknown) {
       if (error instanceof AxiosError) {
@@ -43,7 +44,6 @@ const loginAction: AsyncThunk<any, LoginActionParams, {}> = createAsyncThunk(
         '/auth/login',
         value,
       );
-      console.log('RESPONSELOGİNJ', res.data);
       return res.data;
     } catch (error: unknown) {
       if (error instanceof AxiosError) {

@@ -1,6 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {loginAction, registerAction} from './asynActions';
 import {Type, toastifyMessage} from '../../helpers/toastify';
+import {storageSetToken} from '../../utils/setToken';
 
 const initialState = {
   user: null,
@@ -25,7 +26,7 @@ const authSlice = createSlice({
         state.error = false;
         state.logined = true;
         state.user = payload.data.email;
-        state.token = payload.data.token;
+        storageSetToken(payload.token);
         toastifyMessage(
           Type.success,
           `${payload.data.email} successfully registered`,
@@ -54,7 +55,7 @@ const authSlice = createSlice({
         state.error = false;
         state.logined = true;
         state.user = payload.data.email;
-        state.token = payload.data.token;
+        state.token = payload.token;
         toastifyMessage(
           Type.success,
           `${payload.data.email} successfully logined`,
@@ -67,9 +68,9 @@ const authSlice = createSlice({
         state.token = null;
         state.logined = false;
 
-         if (error && error.message) {
-           toastifyMessage(Type.error, error.message);
-         } 
+        if (error && error.message) {
+          toastifyMessage(Type.error, error.message);
+        }
       });
   },
 });
