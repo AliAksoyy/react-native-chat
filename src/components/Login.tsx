@@ -58,8 +58,11 @@ const Login: React.FC<LoginProps> = ({
     if (forgotPassword) {
       // setLogin(true);
     } else {
-      dispatch(registerAction({value}))
-     
+      dispatch(registerAction({value})).then(res => {
+        if (res.error?.message === 'EMAIL_ALREADY_REGISTERED') {
+          navigation.navigate('SignIn');
+        }
+      });
     }
   };
 
