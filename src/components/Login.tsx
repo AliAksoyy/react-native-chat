@@ -58,8 +58,8 @@ const Login: React.FC<LoginProps> = ({
     if (forgotPassword) {
       // setLogin(true);
     } else {
-      dispatch(registerAction({value}));
-      navigation.navigate('SignIn');
+      dispatch(registerAction({value}))
+     
     }
   };
 

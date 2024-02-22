@@ -5,6 +5,7 @@ import {Type, toastifyMessage} from '../../helpers/toastify';
 const initialState = {
   user: null,
   loading: false,
+  logined: false,
   error: false,
   token: null,
 };
@@ -22,6 +23,7 @@ const authSlice = createSlice({
       .addCase(registerAction.fulfilled, (state, {payload}) => {
         state.loading = false;
         state.error = false;
+        state.logined = true;
         state.user = payload.data.email;
         state.token = payload.data.token;
         toastifyMessage(
@@ -32,6 +34,9 @@ const authSlice = createSlice({
       .addCase(registerAction.rejected, (state, {error}) => {
         state.loading = false;
         state.error = true;
+        state.user = null;
+        state.token = null;
+        state.logined = false;
 
         const errorMessage =
           error instanceof Error

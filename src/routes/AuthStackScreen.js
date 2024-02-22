@@ -5,14 +5,21 @@ import SignInScreen from '../screens/SignInScreen';
 import MessageDetails from '../screens/MessageDetails';
 import {useLoginContext} from '../context/LoginContext';
 import TabStackScreen from './TabStackScreen';
+import {useSelector} from 'react-redux';
+import Loading from '../components/Loading';
 
 const Stack = createNativeStackNavigator();
 
 export default function AuthStackScreen() {
-  const {login} = useLoginContext();
+  const {logined, loading} = useSelector(state => state.auth);
+
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <Stack.Navigator>
-      {!login ? (
+      {!logined ? (
         <>
           <Stack.Screen
             name="SignUp"
