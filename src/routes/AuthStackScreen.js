@@ -16,14 +16,11 @@ export default function AuthStackScreen() {
   const dispatch = useDispatch();
   const {user} = useSelector(state => state.auth);
 
-  console.log(user);
-
   useEffect(() => {
     const getToken = async () => {
       try {
         setLoading(true);
         const token = await AsyncStorage.getItem('token');
-        console.log(token);
         if (token) {
           dispatch(getProfileAction());
         }
@@ -41,7 +38,7 @@ export default function AuthStackScreen() {
   }
   return (
     <Stack.Navigator>
-      {!user ? (
+      {!user && loading ? (
         <>
           <Stack.Screen
             name="SignUp"

@@ -56,7 +56,6 @@ const loginAction: AsyncThunk<any, LoginActionParams, {}> = createAsyncThunk(
 
 const getProfileAction = createAsyncThunk('getProfileAction', async () => {
   const res: AxiosResponse<any> = await axiosInstance.get('/auth/getProfile');
-  console.log('getProfile', res.data);
   return res.data;
 });
 
