@@ -4,7 +4,6 @@ import SignUpScreen from '../screens/SignUpScreen';
 import SignInScreen from '../screens/SignInScreen';
 import MessageDetails from '../screens/MessageDetails';
 import TabStackScreen from './TabStackScreen';
-import {useSelector} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Loading from '../components/Loading';
 
@@ -15,14 +14,19 @@ export default function AuthStackScreen() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    (async () => {
+    const getToken = async () => {
       try {
         setLoading(true);
         const token = await AsyncStorage.getItem('token');
         setToken(token);
+      } catch (error) {
+        console.error(error);
+      } finally {
         setLoading(false);
-      } catch (error) {}
-    })();
+      }
+    };
+
+    getToken();
   }, []);
 
   console.log(token);
