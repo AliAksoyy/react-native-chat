@@ -59,7 +59,6 @@ const Login: React.FC<LoginProps> = ({
       // setLogin(true);
     } else {
       dispatch(registerAction({value}));
-      toastifyMessage(Type.success, 'sadasdsa0');
       navigation.navigate('SignIn');
     }
   };
