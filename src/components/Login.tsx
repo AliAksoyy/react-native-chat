@@ -11,6 +11,9 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RouteParamList} from '../types/types';
 import {useLoginContext} from '../context/LoginContext';
 import {RouteProp} from '@react-navigation/native';
+import {useDispatch} from 'react-redux';
+import {registerAction} from '../features/authSlice/asynActions';
+import {AppDispatch} from '../app/store';
 
 interface LoginProps {
   title: string;
@@ -38,6 +41,8 @@ const Login: React.FC<LoginProps> = ({
 }) => {
   const [value, setValue] = useState<ValueState>({email: '', password: ''});
 
+  const dispatch = useDispatch<AppDispatch>();
+
   const {setLogin} = useLoginContext();
 
   const handlePress = () => {
@@ -49,8 +54,9 @@ const Login: React.FC<LoginProps> = ({
   };
   const handleBtn = () => {
     if (forgotPassword) {
-      setLogin(true);
+      // setLogin(true);
     } else {
+      dispatch(registerAction({value}));
       navigation.navigate('SignIn');
     }
   };

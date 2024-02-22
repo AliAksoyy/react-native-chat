@@ -64,3 +64,10 @@ yarn-error.log
 
 # testing
 /coverage
+
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+SubscriptionKey_WGR9D693M9.p8
