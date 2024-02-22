@@ -11,18 +11,6 @@ import {logoutAction} from '../features/authSlice/asynActions';
 
 const Tab = createBottomTabNavigator();
 
-const LogoutButton = () => {
-  const dispatch = useDispatch();
-  const navigation = useNavigation();
-
-  const handleLogout = () => {
-    dispatch(logoutAction());
-    navigation.navigate('SignIn');
-  };
-
-  return <TouchableOpacity onPress={handleLogout}></TouchableOpacity>;
-};
-
 export default function TabStackScreen() {
   return (
     <Tab.Navigator
@@ -55,15 +43,6 @@ export default function TabStackScreen() {
           options={{
             tabBarIcon: ({color, focused, size}) => (
               <Ionicons name="chatbubble-outline" size={size} color={color} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Logout"
-          component={LogoutButton}
-          options={{
-            tabBarIcon: ({color, focused, size}) => (
-              <Ionicons name="log-out" size={size} color={color} />
             ),
           }}
         />

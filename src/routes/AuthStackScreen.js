@@ -21,6 +21,7 @@ export default function AuthStackScreen() {
       try {
         setLoading(true);
         const token = await AsyncStorage.getItem('token');
+        console.log(token);
         if (token) {
           dispatch(getProfileAction());
         }
