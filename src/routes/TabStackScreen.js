@@ -6,17 +6,14 @@ import ChatsScreen from '../screens/ChatsScreen';
 import Feather from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useDispatch} from 'react-redux';
-import {useNavigation} from '@react-navigation/native';
 import {logoutAction} from '../features/authSlice/asynActions';
 
 const Tab = createBottomTabNavigator();
 
 export default function TabStackScreen() {
-  const dispatch = useDispatch();
-  const navigation = useNavigation();
+  const dispatch = useDispatch()
   const ali = async () => {
-    console.log('object');
-    await dispatch(logoutAction);
+    dispatch(logoutAction());
   };
   return (
     <Tab.Navigator
@@ -57,7 +54,9 @@ export default function TabStackScreen() {
           component={View}
           options={{
             tabBarIcon: ({color, size}) => (
-              <Ionicons name="log-out" size={size} color={color} />
+              <TouchableOpacity onPress={ali}>
+                <Ionicons name="log-out" size={size} color={color} />
+              </TouchableOpacity>
             ),
           }}
         />

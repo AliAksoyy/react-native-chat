@@ -16,6 +16,8 @@ export default function AuthStackScreen() {
   const dispatch = useDispatch();
   const {user} = useSelector(state => state.auth);
 
+  console.log('user', user);
+
   useEffect(() => {
     const getToken = async () => {
       try {
