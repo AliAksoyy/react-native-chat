@@ -1,4 +1,4 @@
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import {TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import ContactScreen from '../screens/ContactScreen';
@@ -11,8 +11,8 @@ import {logoutAction} from '../features/authSlice/asynActions';
 const Tab = createBottomTabNavigator();
 
 export default function TabStackScreen() {
-  const dispatch = useDispatch()
-  const ali = async () => {
+  const dispatch = useDispatch();
+  const handleLogout = async () => {
     dispatch(logoutAction());
   };
   return (
@@ -54,7 +54,7 @@ export default function TabStackScreen() {
           component={View}
           options={{
             tabBarIcon: ({color, size}) => (
-              <TouchableOpacity onPress={ali}>
+              <TouchableOpacity onPress={handleLogout}>
                 <Ionicons name="log-out" size={size} color={color} />
               </TouchableOpacity>
             ),
