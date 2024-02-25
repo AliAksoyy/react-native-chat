@@ -12,33 +12,35 @@ import {getProfileAction} from '../features/authSlice/asynActions';
 const Stack = createNativeStackNavigator();
 
 export default function AuthStackScreen() {
-  const [loading, setLoading] = useState(false);
+  const [loadingState, setLoadingState] = useState(false);
   const dispatch = useDispatch();
-  const {user} = useSelector(state => state.auth);
-
-  console.log('user', user);
+  const {user, logined, loading} = useSelector(state => state.auth);
 
   useEffect(() => {
     const getToken = async () => {
       try {
-        setLoading(true);
-        await AsyncStorage.getItem('token');
-        await dispatch(getProfileAction());
+        setLoadingState(true);
+        let token = await AsyncStorage.getItem('token');
+        if (!!token) {
+          dispatch(getProfileAction());
+        }
       } catch (error) {
         console.error(error);
       } finally {
-        setLoading(false);
+        setLoadingState(false);
       }
     };
     getToken();
   }, [dispatch]);
 
-  if (loading) {
+  console.log('loading', loading);
+
+  if (loadingState || loading) {
     return <Loading />;
   }
   return (
     <Stack.Navigator>
-      {!user ? (
+      {!user || !logined ? (
         <>
           <Stack.Screen
             name="SignUp"
