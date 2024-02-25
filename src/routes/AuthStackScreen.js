@@ -33,7 +33,6 @@ export default function AuthStackScreen() {
     getToken();
   }, [dispatch]);
 
-  console.log('loading', loading);
 
   if (loadingState || loading) {
     return <Loading />;
