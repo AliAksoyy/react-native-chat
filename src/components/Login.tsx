@@ -14,8 +14,7 @@ import {RouteProp} from '@react-navigation/native';
 import {useDispatch} from 'react-redux';
 import {loginAction, registerAction} from '../features/authSlice/asynActions';
 import {AppDispatch} from '../app/store';
-import Toast from 'react-native-toast-message';
-import {Type, toastifyMessage} from '../helpers/toastify';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 interface LoginProps {
   title: string;
@@ -30,6 +29,7 @@ interface LoginProps {
 }
 
 interface ValueState {
+  user: string;
   email: string;
   password: string;
 }
@@ -41,7 +41,11 @@ const Login: React.FC<LoginProps> = ({
   forgotPassword,
   route,
 }) => {
-  const [value, setValue] = useState<ValueState>({email: '', password: ''});
+  const [value, setValue] = useState<ValueState>({
+    user: '',
+    email: '',
+    password: '',
+  });
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -66,7 +70,11 @@ const Login: React.FC<LoginProps> = ({
     }
   };
 
-  const handleChange = (text: {email?: string; password?: string}) => {
+  const handleChange = (text: {
+    user?: string;
+    email?: string;
+    password?: string;
+  }) => {
     setValue({...value, ...text});
   };
 
@@ -74,6 +82,20 @@ const Login: React.FC<LoginProps> = ({
     <View style={styles.container}>
       <Text style={styles.head}>{title}</Text>
       <View>
+        <View>
+          <FontAwesome5
+            style={styles.userImage}
+            name="user-alt"
+            color="#cac5c2"
+            size={20}
+          />
+          <TextInput
+            style={styles.inputEmail}
+            value={value.user}
+            placeholder="Enter UserName"
+            onChangeText={text => handleChange({user: text})}
+          />
+        </View>
         <View>
           <Image
             style={styles.emailImage}
@@ -149,6 +171,12 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     textAlign: 'center',
     marginBottom: 20,
+  },
+  userImage: {
+    position: 'absolute',
+    top: '20%',
+    left: 10,
+    zIndex: 1,
   },
   emailImage: {
     position: 'absolute',
