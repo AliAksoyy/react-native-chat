@@ -8,6 +8,7 @@ import SendMessageModal from '../components/SendMessageModal';
 
 export default function ChatsScreen({navigation}: ChatsScreenProps) {
   const [modalVisible, setModalVisible] = useState(false);
+
   const handleOpenModal = () => {
     setModalVisible(true);
   };

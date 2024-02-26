@@ -3,16 +3,7 @@ import React, {useState} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 
 export default function MessageContent() {
-  const [message, setMessage] = useState({
-    message: [
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. A, neque.Eaque expedita ab harum deserunt',
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. ',
-      'A, exercitationem officialaborum impedit ',
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. A, neque.Eaque expedita ab harum deserunt',
-      'Aliquid exercitationem officialaborum impedit Lorem ipsum dolor sit amet consectetur adipisicing elit. ',
-      'A, neque.Eaque expedita ab harum deserunt! ',
-    ],
-  });
+  const [messageList, setMessageList] = useState([]);
 
   const windowWidth = (Math.floor(Dimensions.get('window').width) * 2) / 3;
 
@@ -43,36 +34,34 @@ export default function MessageContent() {
 
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
-      {Object.values(message)
-        .flat()
-        .map((message, index) => {
-          return (
-            <View key={index}>
-              <LinearGradient
-                start={{x: 0, y: 0}}
-                end={{x: 1, y: 0}}
-                colors={
-                  index % 2 === 0
-                    ? ['#ece8e8', '#dbd8d8']
-                    : ['#f5ad72', '#FF9134']
-                }
+      {messageList.map((message, index) => {
+        return (
+          <View key={index}>
+            <LinearGradient
+              start={{x: 0, y: 0}}
+              end={{x: 1, y: 0}}
+              colors={
+                index % 2 === 0
+                  ? ['#ece8e8', '#dbd8d8']
+                  : ['#f5ad72', '#FF9134']
+              }
+              style={[
+                index % 2 === 0
+                  ? styles.messageContainerLeft
+                  : styles.messageContainerRight,
+                styles.messageContainer,
+              ]}>
+              <Text
                 style={[
-                  index % 2 === 0
-                    ? styles.messageContainerLeft
-                    : styles.messageContainerRight,
-                  styles.messageContainer,
+                  index % 2 === 0 ? styles.messageLeft : styles.messageRight,
+                  styles.message,
                 ]}>
-                <Text
-                  style={[
-                    index % 2 === 0 ? styles.messageLeft : styles.messageRight,
-                    styles.message,
-                  ]}>
-                  {message}
-                </Text>
-              </LinearGradient>
-            </View>
-          );
-        })}
+                {message}
+              </Text>
+            </LinearGradient>
+          </View>
+        );
+      })}
     </ScrollView>
   );
 }
