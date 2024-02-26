@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   View,
   Image,
+  KeyboardAvoidingView,
 } from 'react-native';
 import React, {useState} from 'react';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -81,72 +82,77 @@ const Login: React.FC<LoginProps> = ({
   return (
     <View style={styles.container}>
       <Text style={styles.head}>{title}</Text>
-      <View>
+      <KeyboardAvoidingView>
         <View>
-          <FontAwesome5
-            style={styles.userImage}
-            name="user-alt"
-            color="#cac5c2"
-            size={20}
-          />
-          <TextInput
-            style={styles.inputEmail}
-            value={value.user}
-            placeholder="Enter UserName"
-            onChangeText={text => handleChange({user: text})}
-          />
-        </View>
-        <View>
-          <Image
-            style={styles.emailImage}
-            source={require('../assests/imgs/email.png')}
-          />
-          <TextInput
-            style={styles.inputEmail}
-            value={value.email}
-            placeholder="Enter Mail"
-            onChangeText={text => handleChange({email: text})}
-          />
-        </View>
-        <View>
-          <Image
-            style={styles.passwordImage}
-            source={require('../assests/imgs/password.png')}
-          />
-          <TextInput
-            style={styles.inputPassword}
-            value={value.password}
-            placeholder="Enter Password"
-            onChangeText={text => handleChange({password: text})}
-            secureTextEntry={true}
-          />
-        </View>
-        {forgotPassword && (
+          {forgotPassword || (
+            <View>
+              <FontAwesome5
+                style={styles.userImage}
+                name="user-alt"
+                color="#cac5c2"
+                size={20}
+              />
+              <TextInput
+                style={styles.inputEmail}
+                value={value.user}
+                placeholder="Enter UserName"
+                onChangeText={text => handleChange({user: text})}
+              />
+            </View>
+          )}
+
           <View>
-            <TouchableOpacity>
-              <Text
-                style={{
-                  color: '#FF9134',
-                  paddingTop: 3,
-                  textAlign: 'right',
-                }}>
-                Forgot Password
-              </Text>
+            <Image
+              style={styles.emailImage}
+              source={require('../assests/imgs/email.png')}
+            />
+            <TextInput
+              style={styles.inputEmail}
+              value={value.email}
+              placeholder="Enter Mail"
+              onChangeText={text => handleChange({email: text})}
+            />
+          </View>
+          <View>
+            <Image
+              style={styles.passwordImage}
+              source={require('../assests/imgs/password.png')}
+            />
+            <TextInput
+              style={styles.inputPassword}
+              value={value.password}
+              placeholder="Enter Password"
+              onChangeText={text => handleChange({password: text})}
+              secureTextEntry={true}
+            />
+          </View>
+          {forgotPassword && (
+            <View>
+              <TouchableOpacity>
+                <Text
+                  style={{
+                    color: '#FF9134',
+                    paddingTop: 3,
+                    textAlign: 'right',
+                  }}>
+                  Forgot Password
+                </Text>
+              </TouchableOpacity>
+            </View>
+          )}
+        </View>
+        <View>
+          <TouchableOpacity onPress={handleBtn} style={styles.btn}>
+            <Text style={styles.btnText}>{title}</Text>
+          </TouchableOpacity>
+          <View style={styles.subBtn}>
+            <Text style={styles.innerText}>Do you have an account </Text>
+            <TouchableOpacity onPress={handlePress}>
+              <Text style={styles.subText}>{innerText}</Text>
             </TouchableOpacity>
           </View>
-        )}
-      </View>
-      <View>
-        <TouchableOpacity onPress={handleBtn} style={styles.btn}>
-          <Text style={styles.btnText}>{title}</Text>
-        </TouchableOpacity>
-        <View style={styles.subBtn}>
-          <Text style={styles.innerText}>Do you have an account </Text>
-          <TouchableOpacity onPress={handlePress}>
-            <Text style={styles.subText}>{innerText}</Text>
-          </TouchableOpacity>
         </View>
-      </View>
+      </KeyboardAvoidingView>
     </View>
   );
 };
