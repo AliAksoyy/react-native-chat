@@ -21,9 +21,7 @@ export default function AuthStackScreen() {
       try {
         setLoadingState(true);
         let token = await AsyncStorage.getItem('token');
-        console.log('token', token);
         if (!!token) {
-          console.log('here');
           dispatch(getProfileAction());
         }
       } catch (error) {
