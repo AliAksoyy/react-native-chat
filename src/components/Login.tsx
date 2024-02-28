@@ -80,9 +80,10 @@ const Login: React.FC<LoginProps> = ({
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.head}>{title}</Text>
-      <KeyboardAvoidingView>
+    <KeyboardAvoidingView style={styles.container}>
+      <View>
+        <Text style={styles.head}>{title}</Text>
+
         <View>
           {forgotPassword || (
             <View>
@@ -152,8 +153,8 @@ const Login: React.FC<LoginProps> = ({
             </TouchableOpacity>
           </View>
         </View>
-      </KeyboardAvoidingView>
-    </View>
+      </View>
+    </KeyboardAvoidingView>
   );
 };
 
@@ -164,7 +165,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: '100%',
     backgroundColor: '#fff',
-    height: '65%',
+    height: '67.5%',
     bottom: 0,
     borderTopLeftRadius: 75,
     paddingHorizontal: 30,
@@ -176,7 +177,7 @@ const styles = StyleSheet.create({
     color: '#FF9134',
     fontWeight: '500',
     textAlign: 'center',
-    marginBottom: 20,
+    marginVertical: 20,
   },
   userImage: {
     position: 'absolute',
