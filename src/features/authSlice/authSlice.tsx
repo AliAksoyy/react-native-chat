@@ -83,7 +83,7 @@ const authSlice = createSlice({
         state.loading = false;
         state.error = false;
         state.logined = true;
-        state.user = payload.data.email;
+        state.user = payload.data?.email;
       })
       .addCase(getProfileAction.rejected, (state, {error}) => {
         state.loading = false;

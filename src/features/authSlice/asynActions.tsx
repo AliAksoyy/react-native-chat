@@ -60,6 +60,7 @@ const logoutAction = createAsyncThunk('logoutAction', async () => {
 });
 const getProfileAction = createAsyncThunk('getProfileAction', async () => {
   const res: AxiosResponse<any> = await axiosInstance.get('/auth/getProfile');
+  console.log('resProfile', res.data);
   return res.data;
 });
 

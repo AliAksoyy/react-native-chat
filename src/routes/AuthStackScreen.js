@@ -14,14 +14,16 @@ const Stack = createNativeStackNavigator();
 export default function AuthStackScreen() {
   const [loadingState, setLoadingState] = useState(false);
   const dispatch = useDispatch();
-  const {user, logined, loading} = useSelector(state => state.auth);
+  const {user, logined} = useSelector(state => state.auth);
 
   useEffect(() => {
     const getToken = async () => {
       try {
         setLoadingState(true);
         let token = await AsyncStorage.getItem('token');
+        console.log('token', token);
         if (!!token) {
+          console.log('here');
           dispatch(getProfileAction());
         }
       } catch (error) {
@@ -33,8 +35,7 @@ export default function AuthStackScreen() {
     getToken();
   }, [dispatch]);
 
-
-  if (loadingState || loading) {
+  if (loadingState) {
     return <Loading />;
   }
   return (
